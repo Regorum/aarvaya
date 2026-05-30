@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Aarvaya – Traditional Oil & Flour Mill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav id="main-nav">
+  <div class="nav-logo" onclick="showPage('home')">Aarv<em>aya</em></div>
+  <div class="nav-center">
+    <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+    <a onclick="showPage('products')" id="nav-products">Products</a>
+    <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="showPage('home');closeMenu()" id="mnav-home" class="active">Home</a>
+  <a onclick="showPage('products');closeMenu()" id="mnav-products">Products</a>
+  <a onclick="showPage('contact');closeMenu()" id="mnav-contact">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <canvas id="coconut-canvas"></canvas>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Est. in Tradition &middot; Pure in Quality</span>
+      <div class="hero-title">Aarv<em>aya</em></div>
+      <p class="hero-sub">Traditional Cold-Pressed Oils<br>&amp; Stone-Ground Flours</p>
+      <button class="hero-cta" onclick="showPage('products')">
+        Explore Products &nbsp;→
+      </button>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="home-about">
+    <div class="home-about-inner reveal">
+      <span class="section-eyebrow">Our Story</span>
+      <h2 class="section-heading">From seed to bottle —<br><em>nothing but purity</em></h2>
+      <div class="section-rule"></div>
+      <p class="section-body-text">
+        At Aarvaya, we carry forward centuries-old traditions of cold-pressing and stone-grinding. Every drop of oil and every grain of flour that leaves our mill is a promise of unadulterated goodness — no chemicals, no preservatives, just honest nourishment from the earth.
+      </p>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="home-features">
+    <div class="home-features-inner">
+      <span class="section-eyebrow reveal">Why Aarvaya</span>
+      <h2 class="section-heading reveal" style="color:var(--linen-warm)">The <em>Aarvaya</em> difference</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🌿</div>
+          <div class="feature-title">Cold-Pressed Process</div>
+          <p class="feature-text">Extracted at low temperatures, preserving all natural nutrients, antioxidants and that authentic aroma you can taste.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🪨</div>
+          <div class="feature-title">Stone-Ground Tradition</div>
+          <p class="feature-text">Flours ground on traditional stone chakki mills — slow, careful, retaining the bran, germ and full nutritional value.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🌾</div>
+          <div class="feature-title">Farm-Sourced Ingredients</div>
+          <p class="feature-text">We work directly with trusted local farmers to source the finest coconuts, sesame, groundnuts and grains.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="home-cta">
+    <span class="section-eyebrow reveal">Shop Now</span>
+    <h2 class="section-heading reveal" style="color:var(--linen-warm)">Ready to taste the <em>difference?</em></h2>
+    <div class="section-rule reveal"></div>
+    <p class="section-body-text reveal">Browse our cold-pressed oils and stone-ground flours. Order online and collect from our store.</p>
+    <button class="cta-big-btn reveal" onclick="showPage('products')">View All Products →</button>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Aarv<em>aya</em></div>
+    <div class="footer-rule"></div>
+    <p>Traditional Oil &amp; Flour Mill &middot; Pure &middot; Natural &middot; Honest</p>
+    <p style="margin-top:0.4rem; font-size:0.7rem;">&copy; 2025 Aarvaya. All rights reserved.</p>
+  </footer>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PRODUCTS PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-products">
+
+  <div class="page-hero">
+    <h1>Our <em>Products</em></h1>
+    <p>Pure, natural &amp; made the traditional way</p>
+  </div>
+
+  <div class="products-body">
+    <div class="products-category">
+      <div class="cat-header">
+        <h2 class="cat-title">Cold-Pressed Oils</h2>
+        <p class="cat-sub">Extracted without heat &middot; Full nutrition retained</p>
+      </div>
+      <div class="products-grid" id="oils-grid"></div>
+    </div>
+    <div class="products-category">
+      <div class="cat-header">
+        <h2 class="cat-title">Stone-Ground Flours</h2>
+        <p class="cat-sub">Ground on traditional stone &middot; Nothing added</p>
+      </div>
+      <div class="products-grid" id="flours-grid"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Aarv<em>aya</em></div>
+    <div class="footer-rule"></div>
+    <p>Traditional Oil &amp; Flour Mill &middot; Pure &middot; Natural &middot; Honest</p>
+  </footer>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="page-hero">
+    <h1>Get in <em>Touch</em></h1>
+    <p>We'd love to hear from you</p>
+  </div>
+
+  <div class="contact-body">
+
+    <div class="contact-info">
+      <h3>Come visit us</h3>
+      <p>We welcome you to our mill. Come see the traditional process in action and take home the freshest oils and flours.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Address</span>
+          Aarvaya Oil &amp; Flour Mill<br>[Your Mill Address]<br>Karnataka, India
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Phone</span>
+          [Your Phone Number]
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Store Hours</span>
+          Mon – Sat: 8:00 AM – 7:00 PM<br>Sunday: 9:00 AM – 2:00 PM
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Email</span>
+          [your@email.com]
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h3>Send us a message</h3>
+      <p>Fields marked * are required</p>
+
+      <div id="contact-form-container">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="c-name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Contact Number</label>
+            <input type="tel" id="c-phone" placeholder="+91 00000 00000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="c-email" placeholder="your@email.com" autocomplete="email">
+          <p class="form-err" id="c-email-err">Please enter a valid email address.</p>
+        </div>
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea id="c-message" rows="5" placeholder="Write your message here..."></textarea>
+          <p class="form-err" id="c-msg-err">Please write a message.</p>
+        </div>
+        <div class="emailjs-notice" id="contact-notice">
+          ⚠️ Set up EmailJS to receive contact messages. Update credentials in the script section.
+        </div>
+        <button class="submit-btn" onclick="submitContact()">Send Message</button>
+      </div>
+
+      <div class="contact-success" id="contact-success">
+        <span>✅</span>
+        <h4>Message Sent!</h4>
+        <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-brand">Aarv<em>aya</em></div>
+    <div class="footer-rule"></div>
+    <p>Traditional Oil &amp; Flour Mill &middot; Pure &middot; Natural &middot; Honest</p>
+  </footer>
+
+</div>
+
+
+<!-- ═══════ CART SIDEBAR ═══════ -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-container">
+    <div class="cart-empty" id="cart-empty">
+      <span class="cart-empty-icon">🛒</span>
+      <p>Your cart is empty.<br>Add products to get started.</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cart-total-price">₹0</strong>
+    </div>
+    <button class="place-order-btn" id="place-order-btn" onclick="openOrderModal()" disabled>
+      Place Order
+    </button>
+  </div>
+</div>
+
+<!-- ═══════ ORDER MODAL ═══════ -->
+<div class="modal-overlay" id="order-modal">
+  <div class="order-modal">
+    <div class="modal-drag-handle"></div>
+
+    <div id="order-form-view">
+      <h3 class="modal-title">Complete Your Order</h3>
+      <p class="modal-sub">Provide your contact details so we can prepare your order.</p>
+      <div class="modal-note">
+        📦 Orders are for <strong>store pickup only</strong>. We'll have your items ready when you visit.
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input type="tel" id="o-phone" placeholder="+91 00000 00000" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="o-email" placeholder="your@email.com" autocomplete="email">
+        <p class="form-err" id="o-contact-err">Please provide at least a phone number or email.</p>
+      </div>
+      <div class="emailjs-notice" id="order-notice">
+        ⚠️ EmailJS not configured — orders confirmed but owner notification won't send until you set it up.
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeOrderModal()">Cancel</button>
+        <button class="btn-confirm" onclick="confirmOrder()">Confirm Order</button>
+      </div>
+    </div>
+
+    <div id="order-success-view" style="display:none">
+      <div class="order-success">
+        <span class="success-icon">🎉</span>
+        <h3 class="success-title">Order Placed!</h3>
+        <p class="success-body">Thank you! Your items are noted and being prepared.</p>
+        <div class="success-store">
+          🏪 Please collect your order from our store.<br>Bring this confirmation when you visit.
+        </div>
+        <button class="btn-confirm" onclick="finishOrder()" style="width:100%;min-height:48px">Done →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script defer src="js/app.js">
+</script>
+</body>
+</html>
