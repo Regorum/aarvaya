@@ -7,14 +7,31 @@ const EMAILJS_ORDER_TPL   = 'YOUR_ORDER_TEMPLATE_ID';
 const EMAILJS_CONTACT_TPL = 'YOUR_CONTACT_TEMPLATE_ID';
 const OWNER_EMAIL         = 'your@email.com';
 
+/*
 const EJS_OK = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
 if (EJS_OK) emailjs.init(EMAILJS_PUBLIC_KEY);
 else {
   document.getElementById('order-notice').classList.add('show');
   document.getElementById('contact-notice').classList.add('show');
 }
+ */
+const EJS_OK = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
 
-/* ═══════ PRODUCTS DATA ═══════ */
+if (EJS_OK) {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+} else {
+
+  const orderNotice = document.getElementById('order-notice');
+  if (orderNotice) {
+    orderNotice.classList.add('show');
+  }
+
+  const contactNotice = document.getElementById('contact-notice');
+  if (contactNotice) {
+    contactNotice.classList.add('show');
+  }
+
+}
 const PRODUCTS = {
   oils: [
     { id:'o1', name:'Coconut Oil',    weight:'500 ml',  price:280, icon:'🥥', badge:'Best Seller' },
@@ -252,11 +269,18 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ═══════ COCONUT CANVAS ═══════ */
+/* ═══════ COCONUT CANVAS ═══════
 (function() {
   const canvas = document.getElementById('coconut-canvas');
   const ctx = canvas.getContext('2d');
+ */
+(function() {
+  const canvas = document.getElementById('coconut-canvas');
 
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  
   function resize() {
     canvas.width  = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
